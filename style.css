@@ -1,0 +1,73 @@
+body{
+    display:flex;
+   /* justify-content: center;
+    align-items: center;*/
+    background-image:url("pexels-luna-lovegood-4087568.jpg");
+    background-repeat: no-repeat;
+    background-size: 1250px;
+    background-position-y: -150px;
+    
+}
+
+
+#container{
+    display:flex;
+}
+.color{
+height: 50px;
+width: 50px;
+opacity: 50%;
+
+border-radius:5%;
+margin:10px;
+/*border:solid;*/
+}
+
+#pallet{
+display:flex;
+flex-wrap: wrap;
+width: 150px;
+
+/*border:solid;*/
+}
+#palletBox{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family:'Courier New', Courier, monospace;
+    text-shadow:2px 2px 5px pink;
+   /* border:solid;*/
+    
+}
+
+#draw{
+display:grid;
+grid-template-columns:repeat(32,1fr);
+
+row-gap: 0;
+/*border:solid;*/
+height: 64px;
+width: 64px;
+margin-left:300px;
+padding:10px;
+margin-top:50px;
+border-top:2px lightblue dashed;
+border-bottom:2px lightblue dashed;
+
+
+
+}
+
+.gDiv{
+height: 10px;
+width: 10px;
+/*outline:solid;*/
+margin:0px;
+border-radius:5%;
+opacity:50%;
+}
+
+.colorPressed{
+    border:inset black 1px;
+}
