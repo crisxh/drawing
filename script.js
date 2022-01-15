@@ -2,7 +2,16 @@ let colors=["pink","red","orange","yellow","green","blue","indigo","violet","whi
 let pallet=document.getElementById("pallet");
 let draw=document.getElementById("draw");
 let drawColor="black";
-        
+let eraser=document.createElement("div");
+eraser.className="eraser";
+eraser.innerHTML="eraser";
+
+
+eraser.addEventListener("click",()=>(drawColor=""));
+eraser.addEventListener("mousedown",()=>(eraser.className+=" eraserPressed"));
+eraser.addEventListener("mouseup",()=>(eraser.className="eraser"));
+
+document.addEventListener("click",()=>(console.log(drawColor)));
 
 function createPallet(){
             
@@ -17,6 +26,7 @@ function createPallet(){
 
 
             }
+            pallet.append(eraser);
            
         }
 
@@ -49,14 +59,23 @@ console.log(drawColor);
 
             colorPx.forEach(function(pxl){
                 pxl.addEventListener("mousedown",function(){
-                    this.style.backgroundColor=drawColor;
+                    
+                        this.style.backgroundColor=drawColor;
+
+                    
+                    
                 });
+                pxl.draggable="true";
+
+                pxl.addEventListener("dragover",dragOver);
                 
     
             })
             
         }
         pencil();
+
+
 
         function mDown(){
             this.style.backgroundColor="black";
@@ -71,7 +90,7 @@ console.log(drawColor);
         }
         function dragOver(ev){
             ev.preventDefault();
-            this.style.backgroundColor="black";
+            this.style.backgroundColor=drawColor;
             console.log("over");
             
         }
@@ -90,6 +109,7 @@ console.log(drawColor);
                     
                 })
                 c.addEventListener("mousedown",function(){
+                    
                     drawColor=c.id;
                     console.log("hello");
                     console.log(c);
